@@ -36,7 +36,7 @@ async def predict(image_path: RequestJSON):
   return response.json()
 
 if __name__ == "__main__":
-  port = os.getenv("VISION_AGENT_API_KEY") 
+  port = int(os.getenv("VISION_AGENT_API_KEY"))
   if port is None:
     port = 8000
   uvicorn.run(app, host="0.0.0.0", port=port)
