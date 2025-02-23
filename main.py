@@ -4,9 +4,17 @@ from pydantic import BaseModel, TypeAdapter
 from fastapi import FastAPI
 import os
 import uvicorn
+import requests
 
 app = FastAPI()
-import requests
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class Apple(BaseModel):
   qualities: list[int]
