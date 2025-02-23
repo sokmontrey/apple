@@ -24,7 +24,7 @@ class RequestJSON(BaseModel):
     image_path: str
 
 
-@app.post("/check-apples")
+@app.post("/check-apples/")
 async def call_ai_api(image_path: RequestJSON):
     path = image_path.image_path
     prompt = """Analyze the image to detect the number of apples present. Assess the quality of each apple based on the assigning a score from 0 to 10 (where 10 represents the highest quality and 0 represents the lowest)"""
