@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 app = FastAPI()
 
@@ -28,7 +29,7 @@ async def predict(image_path: RequestJSON):
   }
 
   headers = {
-    "Authorization": "Basic bWxmaTlobG9iajQ1OG8weDhxNGFsOkVhck5EYWE1NDhQdURSQktmdnBsU3N5U1AxQXBuWVQz"
+    "Authorization": f'Basic {os.getenv("VISION_AGENT_API_KEY")}'
   }
 
   response = requests.post(url, data=data, headers=headers)
