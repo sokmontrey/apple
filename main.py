@@ -5,6 +5,7 @@ from fastapi import FastAPI
 import os
 import uvicorn
 import requests
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
